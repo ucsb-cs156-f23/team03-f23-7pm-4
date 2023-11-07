@@ -5,7 +5,8 @@ const articlesFixtures = {
         "id": 1,
         "title": "Bird Article",
         "url": "randomurl.com",
-        "explanation": "randomemail@gmail.com",
+        "email": "randomemail@gmail.com",
+        "explanation": "bird stuff",
         "LocalDateTime": "2000-01-10T:00:10:02"
       }
     ],
@@ -16,7 +17,8 @@ const articlesFixtures = {
             "id": 2,
             "title": "Cat Article",
             "url": "caturl.com",
-            "explanation": "catemail@gmail.com",
+            "email": "catemail@gmail.com",
+            "explanation": "cat stuff",
             "LocalDateTime": "2002-01-10T:00:10:02"    
         },
 
@@ -24,7 +26,8 @@ const articlesFixtures = {
             "id": 3,
             "title": "Dog Article",
             "url": "dogurl.com",
-            "explanation": "dogemail@gmail.com",
+            "email": "dogemail@gmail.com",
+            "explanation": "dog stuff",
             "LocalDateTime": "2003-01-10T:00:11:02"
         },
 
@@ -32,7 +35,8 @@ const articlesFixtures = {
             "id": 4,
             "title": "Lizard Article",
             "url": "lizardurl.com",
-            "explanation": "lizardemail@gmail.com",
+            "email": "lizardemail@gmail.com",
+            "explanation": "lizard stuff",
             "LocalDateTime": "2020-03-10T:00:10:02"    
         },
         
