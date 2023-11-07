@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f23/team03-f23-7pm-4
 owner: ucsb-cs156-f23
 repo_name: team03-f23-7pm-4
-pull_requests: [{"author":{"id":"U_kgDOBXhX9g","is_bot":false,"login":"apzhou0","name":""},"headRefName":"Audrey-Articles-fixtures-fix","number":72,"title":"Fixed missing field in articlesFixtures.js","url":"https://github.com/ucsb-cs156-f23/team03-f23-7pm-4/pull/72"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjc2NDUzODIw","is_bot":false,"login":"EricM5","name":"Eric Marzouk"},"headRefName":"Eric-backend2","number":73,"title":"em - added fixtures file for Menu Item","url":"https://github.com/ucsb-cs156-f23/team03-f23-7pm-4/pull/73"},{"author":{"id":"U_kgDOBXhX9g","is_bot":false,"login":"apzhou0","name":""},"headRefName":"Audrey-Articles-fixtures-fix","number":72,"title":"Fixed missing field in articlesFixtures.js","url":"https://github.com/ucsb-cs156-f23/team03-f23-7pm-4/pull/72"}]
