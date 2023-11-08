@@ -98,7 +98,7 @@ describe("RestaurantForm tests", () => {
             expect(screen.getByText(/Max length 5 characters/)).toBeInTheDocument();
         });
 
-        const translationInput = screen.getByTestId(`${testId}-translation`);
+        const translationInput = screen.getByTestId(`${testId}-orgTranslation`);
         fireEvent.change(translationInput, { target: { value: "a".repeat(101) } });
         fireEvent.click(submitButton);
 
@@ -128,8 +128,8 @@ describe("RestaurantForm tests", () => {
         );
 
         const orgCodeInput = screen.getByTestId(`${testId}-orgCode`);
-        const translationInput = screen.getByTestId(`${testId}-translation`);
-        const translationShortInput = screen.getByTestId(`${testId}-translationShort`);
+        const translationInput = screen.getByTestId(`${testId}-orgTranslation`);
+        const translationShortInput = screen.getByTestId(`${testId}-orgTranslationShort`);
         const inactiveInput = screen.getByTestId(`${testId}-inactive`);
         const submitButton = screen.getByTestId(`${testId}-submit`);
 
