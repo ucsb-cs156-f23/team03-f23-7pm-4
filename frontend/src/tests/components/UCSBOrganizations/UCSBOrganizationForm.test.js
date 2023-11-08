@@ -91,17 +91,28 @@ describe("RestaurantForm tests", () => {
         expect(await screen.findByText(/Org translation is required/)).toBeInTheDocument();
         expect(await screen.findByText(/Short translation is required/)).toBeInTheDocument();
 
-        const nameInput = screen.getByTestId(`${testId}-orgCode`);
-        fireEvent.change(nameInput, { target: { value: "a".repeat(5) } });
-        
-        const translationInput = screen.getByTestId(`${testId}-translation`);
-        fireEvent.change(translationInput, { target: { value: "a".repeat(101) } });
-
+        const orgCodeInput = screen.getByTestId(`${testId}-orgCode`);
+        fireEvent.change(orgCodeInput, { target: { value: "a".repeat(6) } });
         fireEvent.click(submitButton);
 
         await waitFor(() => {
-            expect(screen.getByText(/Max length 4 characters/)).toBeInTheDocument();
+            expect(screen.getByText(/Max length 5 characters/)).toBeInTheDocument();
+        });
+
+        const translationInput = screen.getByTestId(`${testId}-translation`);
+        fireEvent.change(translationInput, { target: { value: "a".repeat(101) } });
+        fireEvent.click(submitButton);
+
+        await waitFor(() => {
             expect(screen.getByText(/Max length 100 characters/)).toBeInTheDocument();
+        });
+
+        const orgCodeInput2 = screen.getByTestId(`${testId}-orgCode`);
+        fireEvent.change(orgCodeInput2, { target: { value: "a".repeat(4) } });
+        fireEvent.click(submitButton);
+
+        await waitFor(() => { 
+            expect(screen.getByText(/Org code must be all uppercase/)).toBeInTheDocument();
         });
     });
 

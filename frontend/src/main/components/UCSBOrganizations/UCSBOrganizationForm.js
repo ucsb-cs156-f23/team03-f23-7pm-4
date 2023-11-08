@@ -17,6 +17,8 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
    
     const navigate = useNavigate();
 
+    const orgCodeRegex = /^[^a-z]*$/;
+
     const testIdPrefix = "UCSBOrganizationForm";
 
     return (
@@ -31,15 +33,17 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     isInvalid={Boolean(errors.orgCode)}
                     {...register("orgCode", {
                         required: "Org code is required.",
-                        maxLength : {
-                            value: 4,
-                            message: "Max length 4 characters"
-                        }
+                        maxLength: {
+                            value: 5,
+                            message: "Max length 5 characters"
+                        },
+                        pattern: orgCodeRegex
                     })}
                     disabled={initialContents}
                 />
                 <Form.Control.Feedback type="invalid">
                     {errors.orgCode?.message}
+                    {errors.orgCode?.type === 'pattern' && 'Org code must be all uppercase'}
                 </Form.Control.Feedback>
             </Form.Group>
 
