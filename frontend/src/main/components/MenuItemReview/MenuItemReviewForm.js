@@ -24,7 +24,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     // Stryker disable next-line all
     //const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
-    const testIdPrefix = "MenuItemReview";
+    const testIdPrefix = "MenuItemReviewForm";
 
     return (
 
@@ -32,7 +32,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
                 {initialContents && (
                         <Form.Group className="mb-3" >
-                            <Form.Label htmlFor="itemId">itemId</Form.Label>
+                            <Form.Label htmlFor="id">id</Form.Label>
                             <Form.Control
                                 data-testid={testIdPrefix + "-id"}
                                 id="id"
@@ -56,7 +56,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.name?.message}
+                        {errors.itemId?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
 
@@ -72,7 +72,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     })}
                     />
                     <Form.Control.Feedback type="invalid">
-                        {errors.name?.message}
+                    {errors.reviewerEmail?.message}
                     </Form.Control.Feedback>
                 </Form.Group>
 
@@ -88,7 +88,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     })}
                     />
                     <Form.Control.Feedback type="invalid">
-                        {errors.name?.message}
+                    {errors.stars?.message}
                     </Form.Control.Feedback>
                 </Form.Group>
 
@@ -102,7 +102,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {...register("dateReviewed", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.dateReviewed && 'Date reviewed is required. '}
+                            {errors.dateReviewed && 'Date reviewed is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
 
@@ -118,7 +118,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.description?.message}
+                {errors.comments?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
