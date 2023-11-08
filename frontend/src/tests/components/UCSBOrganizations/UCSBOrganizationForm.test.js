@@ -57,7 +57,6 @@ describe("RestaurantForm tests", () => {
         expect(screen.getByText(`Organization Code`)).toBeInTheDocument();
     });
 
-
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
             <QueryClientProvider client={queryClient}>
@@ -116,4 +115,33 @@ describe("RestaurantForm tests", () => {
         });
     });
 
+    test("that no Error messsages on good input", async () => {
+
+        const mockSubmitAction = jest.fn();
+
+        render(
+            <QueryClientProvider client={queryClient}>
+                <Router>
+                    <UCSBOrganizationForm submitAction={mockSubmitAction} />
+                </Router>
+            </QueryClientProvider>
+        );
+
+        const orgCodeInput = screen.getByTestId(`${testId}-orgCode`);
+        const translationInput = screen.getByTestId(`${testId}-translation`);
+        const translationShortInput = screen.getByTestId(`${testId}-translationShort`);
+        const inactiveInput = screen.getByTestId(`${testId}-inactive`);
+        const submitButton = screen.getByTestId(`${testId}-submit`);
+
+        fireEvent.change(orgCodeInput, { target: { value: 'NEW' } });
+        fireEvent.change(translationInput, { target: { value: 'new Translation' } });
+        fireEvent.change(translationShortInput, { target: { value: 'new Short Translation' } });
+        fireEvent.change(inactiveInput, { target: { value: true } });
+        fireEvent.click(submitButton);
+
+        await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+
+        expect(screen.queryByText(/Org code must be all uppercase/)).not.toBeInTheDocument();
+    });
+    
 });

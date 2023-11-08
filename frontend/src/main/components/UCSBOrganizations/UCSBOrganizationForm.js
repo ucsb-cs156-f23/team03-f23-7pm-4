@@ -89,9 +89,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     data-testid={testIdPrefix + "-inactive"}
                     id="inactive"
                     type="select"
-                    {...register("inactive", {
-                        required: false
-                    })}
+                    {...register("inactive")}
                 />
             </Form.Group>
 
