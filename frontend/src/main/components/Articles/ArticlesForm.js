@@ -46,16 +46,16 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                 )}
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="localDateTime">Date (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateAdded">Date (iso format)</Form.Label>
                         <Form.Control
-                            data-testid="ArticlesForm-localDateTime"
-                            id="localDateTime"
+                            data-testid="ArticlesForm-dateAdded"
+                            id="dateAdded"
                             type="datetime-local"
-                            isInvalid={Boolean(errors.localDateTime)}
-                            {...register("localDateTime", { required: true, pattern: isodate_regex })}
+                            isInvalid={Boolean(errors.dateAdded)}
+                            {...register("dateAdded", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.localDateTime && 'LocalDateTime is required.'}
+                            {errors.dateAdded && 'DateAdded is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
