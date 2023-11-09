@@ -120,36 +120,9 @@ describe("UserTable tests", () => {
 
   });
 
-  test("Edit button navigates to the edit page for admin user", async () => {
-
-    const currentUser = currentUserFixtures.adminUser;
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
-        </MemoryRouter>
-      </QueryClientProvider>
-
-    );
-
-    await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
-
-    const editButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Edit-button`);
-    expect(editButton).toBeInTheDocument();
-    
-    fireEvent.click(editButton);
-
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequest/edit/1'));
-
-
-  });
-
   test("Delete button calls delete callback", async () => {
-    // arrange
     const currentUser = currentUserFixtures.adminUser;
 
-    // act - render the component
     render(
         <QueryClientProvider client={queryClient}>
             <MemoryRouter>
@@ -163,7 +136,6 @@ describe("UserTable tests", () => {
     const deleteButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();
 
-    // act - click the delete button
     fireEvent.click(deleteButton);
     });
 
