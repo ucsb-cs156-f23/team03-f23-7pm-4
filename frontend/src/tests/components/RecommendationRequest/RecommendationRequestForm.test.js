@@ -74,6 +74,7 @@ describe("RecommendationRequestForm tests", () => {
         expect(screen.getByText(/requesterEmail is required./)).toBeInTheDocument();
         expect(screen.getByText(/professorEmail is required./)).toBeInTheDocument();
         expect(screen.getByText(/explanation is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Done is required./)).toBeInTheDocument();
     });
 
     test("No Error messsages on good input", async () => {
@@ -98,17 +99,25 @@ describe("RecommendationRequestForm tests", () => {
 
         fireEvent.change(requesterEmail, { target: { value: 'chris@ucsb.edu' } });
         fireEvent.change(professorEmail, { target: { value: 'conrad@ucsb.edu' } });
-        fireEvent.change(dateRequested, { target: { value: '2022-01-02T12:00' } });
-        fireEvent.change(dateNeeded, { target: { value: '2022-01-02T12:00' } });
+        fireEvent.change(dateRequested, { target: { value: '2022-01-02T12:00:00' } });
         fireEvent.change(explanation, { target: { value: 'I need a recommendation' } });
         fireEvent.change(done, { target: { value: 'true' } });
 
         fireEvent.click(submitButton);
 
-        await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+        await waitFor(() => expect(screen.getByText(/DateNeeded is required./)).toBeInTheDocument());
 
-        expect(screen.queryByText(/DateRequested is required./)).not.toBeInTheDocument();
+
+        fireEvent.change(dateNeeded, { target: { value: '2022-02-02T12:00:00' } });
+        fireEvent.click(submitButton);
+
+        await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+        expect(screen.queryByText(/requesterEmail is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/professorEmail is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/explanation is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/DateNeeded is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/DateRequested is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Done is required./)).not.toBeInTheDocument();
 
     });
 
