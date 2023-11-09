@@ -6,9 +6,8 @@
 //@Parameter(name="done") @RequestParam boolean done
 
 const recommendationRequestFixtures = {
-    oneRestaurant:
-    [
-      {
+    oneRecommendationRequest:
+    {
         "id": 1,
         "requesterEmail": "benjaminconte@ucsb.edu",
         "professorEmail": "conrad@ucsb.edu",
@@ -16,8 +15,7 @@ const recommendationRequestFixtures = {
         "dateRequested": "2023-10-14T10:15:00",
         "dateNeeded": "2024-01-04T12:20:00",
         "done": false
-      }
-    ],
+    },
 
     threeRecommendationRequests:
     [

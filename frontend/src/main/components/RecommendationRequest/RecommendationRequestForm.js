@@ -64,10 +64,10 @@ function RecommendationRequestForm ({ initialContents, submitAction, buttonLabel
                             id="professorEmail"
                             type="text"
                             isInvalid={Boolean(errors.professorEmail)}
-                            {...register("professorEmail", { required: "requesterEmail is required."})}
+                            {...register("professorEmail", { required: "professorEmail is required."})}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.requesterEmail?.message}
+                            {errors.professorEmail?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -94,7 +94,7 @@ function RecommendationRequestForm ({ initialContents, submitAction, buttonLabel
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateRequested">Date (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateRequested">Date Requested (iso format)</Form.Label>
                         <Form.Control
                             data-testid="RecommendationRequestForm-dateRequested"
                             id="dateRequested"
@@ -103,22 +103,22 @@ function RecommendationRequestForm ({ initialContents, submitAction, buttonLabel
                             {...register("dateRequested", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.localDateTime && 'DateRequested is required. '}
+                            {errors.dateRequested && 'DateRequested is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateNeeded">Date (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateNeeded">Date Needed (iso format)</Form.Label>
                         <Form.Control
                             data-testid="RecommendationRequestForm-dateNeeded"
                             id="dateNeeded"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateNeeded)}
-                            {...register("dateRequested", { required: true, pattern: isodate_regex })}
+                            {...register("dateNeeded", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.localDateTime && 'DateNeeded is required. '}
+                            {errors.dateNeeded && 'DateNeeded is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
