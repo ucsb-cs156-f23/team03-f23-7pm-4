@@ -105,9 +105,7 @@ describe("RecommendationRequestForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        //await waitFor(() => expect(screen.getByText(/DateNeeded is required./)).toBeInTheDocument());
         const temp = await screen.findByText(/DateNeeded is required./);
-        //expect(screen.getByText(/DateNeeded is required./)).toBeInTheDocument()
         expect(temp).toBeInTheDocument()
         fireEvent.change(dateNeeded, { target: { value: '2022-02-02T12:00:00' } });
         fireEvent.click(submitButton);
