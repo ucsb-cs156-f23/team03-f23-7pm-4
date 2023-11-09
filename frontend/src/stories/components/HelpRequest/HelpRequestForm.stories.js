@@ -1,16 +1,16 @@
 import React from 'react';
-import UCSBDateForm from "main/components/UCSBDates/UCSBDateForm"
-import { ucsbDatesFixtures } from 'fixtures/ucsbDatesFixtures';
+import HelpRequestForm from "main/components/HelpRequest/HelpRequestForm"
+import { helpRequestFixtures } from 'fixtures/helpRequestFixtures';
 
 export default {
-    title: 'components/UCSBDates/UCSBDateForm',
-    component: UCSBDateForm
+    title: 'components/HelpRequest/HelpRequestForm',
+    component: HelpRequestForm
 };
 
 
 const Template = (args) => {
     return (
-        <UCSBDateForm {...args} />
+        <HelpRequestForm {...args} />
     )
 };
 
@@ -27,7 +27,7 @@ Create.args = {
 export const Update = Template.bind({});
 
 Update.args = {
-    initialContents: ucsbDatesFixtures.oneDate,
+    initialContents: helpRequestFixtures.oneRequest,
     buttonLabel: "Update",
     submitAction: (data) => {
         console.log("Submit was clicked with data: ", data); 
