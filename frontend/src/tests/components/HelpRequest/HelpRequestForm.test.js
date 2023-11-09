@@ -49,9 +49,18 @@ describe("HelpRequestForm tests", () => {
         await screen.findByTestId("HelpRequestForm-requesterEmail");
         const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
         const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
+        const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
+        const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
+        const explanationField = screen.getByTestId("HelpRequestForm-explanation");
+        const solvedField = screen.getByTestId("HelpRequestForm-solved");
+        const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
         fireEvent.change(requesterEmailField, { target: { value: 'bad-input' } });
         fireEvent.change(requestTimeField, { target: { value: 'bad-input' } });
+        fireEvent.change(teamIdField, { target: { value: 'bad-input' } });
+        fireEvent.change(tableOrBreakoutRoomField, { target: { value: 'bad-input' } });
+        fireEvent.change(explanationField, { target: { value: 'bad-input' } });
+        fireEvent.change(solvedField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
         await screen.findByText(/requestTime is required./);
