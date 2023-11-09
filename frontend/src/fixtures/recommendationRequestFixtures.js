@@ -20,7 +20,7 @@ const recommendationRequestFixtures = {
     threeRecommendationRequests:
     [
         {
-            "id": 2,
+            "id": 1,
             "requesterEmail": "chris@ucsb.edu",
             "professorEmail": "suri@ucsb.edu",
             "explanation": "For applications for PHD programs in computer science",
@@ -30,7 +30,7 @@ const recommendationRequestFixtures = {
         },
 
         {
-            "id": 3,
+            "id": 2,
             "requesterEmail": "luke@ucsb.edu",
             "professorEmail": "hardekopf@ucsb.edu",
             "explanation": "For job applications",
@@ -40,7 +40,7 @@ const recommendationRequestFixtures = {
         },
 
         {
-            "id": 4,
+            "id": 3,
             "requesterEmail": "sebastian@ucsb.edu",
             "professorEmail": "krintz@ucsb.edu",
             "explanation": "For research positions",
