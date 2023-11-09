@@ -117,6 +117,28 @@ describe("UserTable tests", () => {
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequest/edit/1'));
 
   });
+  
+  test("Delete button calls delete callback", async () => {
+    // arrange
+    const currentUser = currentUserFixtures.adminUser;
+
+    // act - render the component
+    render(
+        <QueryClientProvider client={queryClient}>
+            <MemoryRouter>
+                <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+            </MemoryRouter>
+        </QueryClientProvider>
+    );
+
+    await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+
+    const deleteButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+
+    // act - click the delete button
+    fireEvent.click(deleteButton);
+    });
 
 });
 
