@@ -50,16 +50,3 @@ export default function ArticlesCreatePage({storybook=false}) {
     </BasicLayout>
   )
 }
-=======
-
-export default function ArticlesCreatePage() {
-
-  // Stryker disable all : placeholder for future implementation
-  return (
-    <BasicLayout>
-      <div className="pt-2">
-        <h1>Create page not yet implemented</h1>
-      </div>
-    </BasicLayout>
-  )
-}
