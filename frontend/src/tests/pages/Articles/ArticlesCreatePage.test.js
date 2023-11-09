@@ -1,4 +1,5 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ArticlesCreatePage from "main/pages/Articles/ArticlesCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -33,6 +34,12 @@ describe("ArticlesCreatePage tests", () => {
     const axiosMock =new AxiosMockAdapter(axios);
 
     beforeEach(() => {
+      
+describe("ArticlesCreatePage tests", () => {
+
+    const axiosMock = new AxiosMockAdapter(axios);
+
+    const setupUserOnly = () => {
         axiosMock.reset();
         axiosMock.resetHistory();
         axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
@@ -64,6 +71,15 @@ describe("ArticlesCreatePage tests", () => {
 
         axiosMock.onPost("/api/articles/post").reply( 202, article );
 
+    };
+
+    const queryClient = new QueryClient();
+    test("Renders expected content", () => {
+        // arrange
+
+        setupUserOnly();
+       
+        // act
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
@@ -108,6 +124,10 @@ describe("ArticlesCreatePage tests", () => {
         expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
     });
 
+
+        // assert
+        expect(screen.getByText("Create page not yet implemented")).toBeInTheDocument();
+    });
 
 });
 
