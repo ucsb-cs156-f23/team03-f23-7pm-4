@@ -129,12 +129,17 @@ function RecommendationRequestForm ({ initialContents, submitAction, buttonLabel
                     data-testid="RecommendationRequestForm-done"
                     id="done"
                     isInvalid={Boolean(errors.done)}
-                    {...register("done", { required: true})}
+                    {...register("done", { required: "Done is required."})}
                 >
                     <option value="">Select an option</option>
                     <option value="true">True</option>
                     <option value="false">False</option>
                 </Form.Select>
+                {errors.done && (
+                    <Form.Control.Feedback type="invalid">
+                        {errors.done.message}
+                    </Form.Control.Feedback>
+                )}
             </Row>
 
             <Row>
