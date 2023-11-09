@@ -79,6 +79,7 @@ describe("UCSBDateForm tests", () => {
 
         const mockSubmitAction = jest.fn();
 
+        
         render(
             <Router  >
                 <UCSBDateForm submitAction={mockSubmitAction} />
