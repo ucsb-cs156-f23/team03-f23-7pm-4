@@ -1,5 +1,4 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
-import { render, screen } from "@testing-library/react";
 import ArticlesCreatePage from "main/pages/Articles/ArticlesCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
