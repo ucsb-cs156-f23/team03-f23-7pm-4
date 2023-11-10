@@ -44,6 +44,14 @@ export default function MenuItemReviewCreatePage({storybook=false}) {
       <div className="pt-2">
         <h1>Create New Menu Item Review</h1>
         <MenuItemReviewForm submitAction={onSubmit} />
+
+export default function MenuItemReviewCreatePage() {
+
+  // Stryker disable all : placeholder for future implementation
+  return (
+    <BasicLayout>
+      <div className="pt-2">
+        <h1>Create page not yet implemented</h1>
       </div>
     </BasicLayout>
   )
