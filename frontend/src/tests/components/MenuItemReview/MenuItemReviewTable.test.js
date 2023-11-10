@@ -178,3 +178,4 @@ describe("MenuItemReviewTable tests", () => {
     fireEvent.click(deleteButton);
   });
 });
+
