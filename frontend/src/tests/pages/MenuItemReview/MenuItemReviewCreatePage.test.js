@@ -33,11 +33,6 @@ describe("MenuItemReviewCreatePage tests", () => {
     const axiosMock =new AxiosMockAdapter(axios);
 
     beforeEach(() => {
-describe("MenuItemReviewCreatePage tests", () => {
-
-    const axiosMock = new AxiosMockAdapter(axios);
-
-    const setupUserOnly = () => {
         axiosMock.reset();
         axiosMock.resetHistory();
         axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
@@ -69,15 +64,6 @@ describe("MenuItemReviewCreatePage tests", () => {
 
         axiosMock.onPost("/api/menuitemreview/post").reply( 202, menuItemReview );
 
-    };
-
-    const queryClient = new QueryClient();
-    test("Renders expected content", () => {
-        // arrange
-
-        setupUserOnly();
-       
-        // act
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
@@ -122,10 +108,6 @@ describe("MenuItemReviewCreatePage tests", () => {
         expect(mockNavigate).toBeCalledWith({ "to": "/menuitemreview" });
     });
 
-
-        // assert
-        expect(screen.getByText("Create page not yet implemented")).toBeInTheDocument();
-    });
 
 });
 
