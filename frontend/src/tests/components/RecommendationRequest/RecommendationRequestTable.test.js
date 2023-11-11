@@ -45,6 +45,7 @@ describe("UserTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -116,6 +117,7 @@ describe("UserTable tests", () => {
 
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequest/edit/1'));
 
+
   });
   
   test("Delete button calls delete callback", async () => {
@@ -137,6 +139,25 @@ describe("UserTable tests", () => {
     expect(deleteButton).toBeInTheDocument();
 
     // act - click the delete button
+    fireEvent.click(deleteButton);
+    });
+
+  test("Delete button calls delete callback", async () => {
+    const currentUser = currentUserFixtures.adminUser;
+
+    render(
+        <QueryClientProvider client={queryClient}>
+            <MemoryRouter>
+                <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+            </MemoryRouter>
+        </QueryClientProvider>
+    );
+
+    await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+
+    const deleteButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+
     fireEvent.click(deleteButton);
     });
 
