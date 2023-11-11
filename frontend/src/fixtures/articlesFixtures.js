@@ -6,7 +6,7 @@ const articlesFixtures = {
         "url": "randomurl.com",
         "email": "randomemail@gmail.com",
         "explanation": "bird stuff",
-        "localDateTime": "2000-01-10T:00:10:02"
+        "dateAdded": "2000-01-10T:00:10:02"
       },
 
     threeArticles:
@@ -17,7 +17,7 @@ const articlesFixtures = {
             "url": "caturl.com",
             "email": "catemail@gmail.com",
             "explanation": "cat stuff",
-            "localDateTime": "2002-01-10T:00:10:02"    
+            "dateAdded": "2002-01-10T:00:10:02"    
         },
 
         {
@@ -26,7 +26,7 @@ const articlesFixtures = {
             "url": "dogurl.com",
             "email": "dogemail@gmail.com",
             "explanation": "dog stuff",
-            "localDateTime": "2003-01-10T:00:11:02"
+            "dateAdded": "2003-01-10T:00:11:02"
         },
 
         {
@@ -35,7 +35,7 @@ const articlesFixtures = {
             "url": "lizardurl.com",
             "email": "lizardemail@gmail.com",
             "explanation": "lizard stuff",
-            "localDateTime": "2020-03-10T:00:10:02"    
+            "dateAdded": "2020-03-10T:00:10:02"    
         },
         
     ]
