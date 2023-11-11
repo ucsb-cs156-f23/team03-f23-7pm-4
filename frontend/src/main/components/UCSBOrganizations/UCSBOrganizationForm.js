@@ -48,13 +48,13 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="translation">Organization Translation</Form.Label>
+                <Form.Label htmlFor="orgTranslation">Organization Translation</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-translation"}
-                    id="translation"
+                    data-testid={testIdPrefix + "-orgTranslation"}
+                    id="orgTranslation"
                     type="text"
-                    isInvalid={Boolean(errors.translation)}
-                    {...register("translation", {
+                    isInvalid={Boolean(errors.orgTranslation)}
+                    {...register("orgTranslation", {
                         required: "Org translation is required.",
                         maxLength : {
                             value: 100,
@@ -63,23 +63,23 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.translation?.message}
+                    {errors.orgTranslation?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="translationShort">Short Translation</Form.Label>
+                <Form.Label htmlFor="orgTranslationShort">Short Translation</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-translationShort"}
-                    id="translationShort"
+                    data-testid={testIdPrefix + "-orgTranslationShort"}
+                    id="orgTranslationShort"
                     type="text"
-                    isInvalid={Boolean(errors.translationShort)}
-                    {...register("translationShort", {
+                    isInvalid={Boolean(errors.orgTranslationShort)}
+                    {...register("orgTranslationShort", {
                         required: "Short translation is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.translationShort?.message}
+                    {errors.orgTranslationShort?.message}
                 </Form.Control.Feedback>
             </Form.Group>
             
