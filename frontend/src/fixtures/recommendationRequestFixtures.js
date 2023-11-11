@@ -6,9 +6,8 @@
 //@Parameter(name="done") @RequestParam boolean done
 
 const recommendationRequestFixtures = {
-    oneRestaurant:
-    [
-      {
+    oneRecommendationRequest:
+    {
         "id": 1,
         "requesterEmail": "benjaminconte@ucsb.edu",
         "professorEmail": "conrad@ucsb.edu",
@@ -16,13 +15,12 @@ const recommendationRequestFixtures = {
         "dateRequested": "2023-10-14T10:15:00",
         "dateNeeded": "2024-01-04T12:20:00",
         "done": false
-      }
-    ],
+    },
 
     threeRecommendationRequests:
     [
         {
-            "id": 2,
+            "id": 1,
             "requesterEmail": "chris@ucsb.edu",
             "professorEmail": "suri@ucsb.edu",
             "explanation": "For applications for PHD programs in computer science",
@@ -32,7 +30,7 @@ const recommendationRequestFixtures = {
         },
 
         {
-            "id": 3,
+            "id": 2,
             "requesterEmail": "luke@ucsb.edu",
             "professorEmail": "hardekopf@ucsb.edu",
             "explanation": "For job applications",
@@ -42,7 +40,7 @@ const recommendationRequestFixtures = {
         },
 
         {
-            "id": 4,
+            "id": 3,
             "requesterEmail": "sebastian@ucsb.edu",
             "professorEmail": "krintz@ucsb.edu",
             "explanation": "For research positions",
