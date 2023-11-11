@@ -2,19 +2,19 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
 import { useBackendMutation } from "main/utils/useBackend";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/menuItemReviewUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBDiningCommonsMenuItem"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function MenuItemReviewTable({
-    menuItemReviews,
+export default function UCSBDiningCommonsMenuItemTable({
+    ucsbDiningCommonsMenuItem,
     currentUser,
-    testIdPrefix = "MenuItemReviewTable" }) {
+    testIdPrefix = "DiningCommonsMenuItemTable" }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/menuItemReviews/edit/${cell.row.values.id}`)
+        navigate(`/UCSBDiningCommonsMenuItem/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -22,7 +22,7 @@ export default function MenuItemReviewTable({
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/menuItemReviews/all"]
+        ["/api/UCSBDiningCommonsMenuItem/all"]
     );
     // Stryker restore all 
 
@@ -36,24 +36,16 @@ export default function MenuItemReviewTable({
         },
 
         {
-            Header: 'ItemId',
-            accessor: 'itemId',
+            Header: 'Dining Commons Code',
+            accessor: 'diningCommonsCode',
         },
         {
-            Header: 'ReviewerEmail',
-            accessor: 'reviewerEmail',
+            Header: 'Name',
+            accessor: 'name',
         },
         {
-            Header: 'Stars',
-            accessor: 'stars',
-        },
-        {
-            Header: 'DateReviewed',
-            accessor: 'dateReviewed',
-        },
-        {
-            Header: 'Comments',
-            accessor: 'comments',
+            Header: 'Station',
+            accessor: 'station'
         }
     ];
 
@@ -63,7 +55,7 @@ export default function MenuItemReviewTable({
     } 
 
     return <OurTable
-        data={menuItemReviews}
+        data={ucsbDiningCommonsMenuItem}
         columns={columns}
         testid={testIdPrefix}
     />;

@@ -2,19 +2,16 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
 import { useBackendMutation } from "main/utils/useBackend";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/menuItemReviewUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/RecommendationRequestUtils"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function MenuItemReviewTable({
-    menuItemReviews,
-    currentUser,
-    testIdPrefix = "MenuItemReviewTable" }) {
+export default function RecommendationRequestTable({ recommendationrequests, currentUser }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/menuItemReviews/edit/${cell.row.values.id}`)
+        navigate(`/recommendationrequest/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -22,50 +19,53 @@ export default function MenuItemReviewTable({
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/menuItemReviews/all"]
+        ["/api/recommendationrequest/all"]
     );
     // Stryker restore all 
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
+
     const columns = [
         {
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
-
         {
-            Header: 'ItemId',
-            accessor: 'itemId',
+            Header: 'RequesterEmail',
+            accessor: 'requesterEmail',
         },
         {
-            Header: 'ReviewerEmail',
-            accessor: 'reviewerEmail',
+            Header: 'ProfessorEmail',
+            accessor: 'professorEmail',
         },
         {
-            Header: 'Stars',
-            accessor: 'stars',
+            Header: 'Explanation',
+            accessor: 'explanation',
         },
         {
-            Header: 'DateReviewed',
-            accessor: 'dateReviewed',
+            Header: 'DateRequested',
+            accessor: 'dateRequested',
         },
         {
-            Header: 'Comments',
-            accessor: 'comments',
+            Header: 'DateNeeded',
+            accessor: 'dateNeeded',
+        },
+        {
+            Header: 'Done',
+            accessor: 'done',
         }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
 
     return <OurTable
-        data={menuItemReviews}
+        data={recommendationrequests}
         columns={columns}
-        testid={testIdPrefix}
+        testid={"RecommendationRequestTable"}
     />;
 };
-

@@ -1,42 +1,42 @@
 import React from 'react';
-import MenuItemReviewTable from 'main/components/MenuItemReview/MenuItemReviewTable';
-import { menuItemReviewFixtures } from 'fixtures/menuItemReviewFixtures';
+import RecommendationRequestTable from "main/components/RecommendationRequest/RecommendationRequestTable";
+import { recommendationRequestFixtures } from 'fixtures/recommendationRequestFixtures';
 import { currentUserFixtures } from 'fixtures/currentUserFixtures';
 import { rest } from "msw";
 
 export default {
-    title: 'components/MenuItemReview/MenuItemReviewTable',
-    component: MenuItemReviewTable
+    title: 'components/RecommendationRequest/RecommendationRequestTable',
+    component: RecommendationRequestTable
 };
 
 const Template = (args) => {
     return (
-        <MenuItemReviewTable {...args} />
+        <RecommendationRequestTable {...args} />
     )
 };
 
 export const Empty = Template.bind({});
 
 Empty.args = {
-    menuItemReviews: []
+    recommendationrequests: []
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-    menuItemReviews: menuItemReviewFixtures.threeMenuItemReviews,
+    recommendationrequests: recommendationRequestFixtures.threeRecommendationRequests,
     currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-    menuItemReviews: menuItemReviewFixtures.threeMenuItemReviews,
+    recommendationrequests: recommendationRequestFixtures.threeRecommendationRequests,
     currentUser: currentUserFixtures.adminUser,
 }
 
 ThreeItemsAdminUser.parameters = {
     msw: [
-        rest.delete('/api/menuItemReviews', (req, res, ctx) => {
+        rest.delete('/api/recommendationrequest', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
             return res(ctx.status(200),ctx.json({}));
         }),

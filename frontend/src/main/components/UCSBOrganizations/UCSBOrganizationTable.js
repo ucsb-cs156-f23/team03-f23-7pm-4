@@ -2,19 +2,19 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
 import { useBackendMutation } from "main/utils/useBackend";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/menuItemReviewUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBOrganizationUtils"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function MenuItemReviewTable({
-    menuItemReviews,
+export default function UCSBOrganizationTable({
+    ucsbOrganizations,
     currentUser,
-    testIdPrefix = "MenuItemReviewTable" }) {
+    testIdPrefix = "UCSBOrganizationTable" }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/menuItemReviews/edit/${cell.row.values.id}`)
+        navigate(`/ucsborganizations/edit/${cell.row.values.orgCode}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -22,38 +22,31 @@ export default function MenuItemReviewTable({
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/menuItemReviews/all"]
+        ["/api/ucsborganizations/all"]
     );
     // Stryker restore all 
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
+
     const columns = [
         {
-            Header: 'id',
-            accessor: 'id', // accessor is the "key" in the data
+            Header: 'Organization Code',
+            accessor: 'orgCode', // accessor is the "key" in the data
         },
 
         {
-            Header: 'ItemId',
-            accessor: 'itemId',
+            Header: 'Organization Translation',
+            accessor: 'orgTranslation',
         },
         {
-            Header: 'ReviewerEmail',
-            accessor: 'reviewerEmail',
+            Header: 'Short Translation',
+            accessor: 'orgTranslationShort',
         },
         {
-            Header: 'Stars',
-            accessor: 'stars',
-        },
-        {
-            Header: 'DateReviewed',
-            accessor: 'dateReviewed',
-        },
-        {
-            Header: 'Comments',
-            accessor: 'comments',
+            Header: 'Inactive',
+            accessor: 'inactive',
         }
     ];
 
@@ -63,7 +56,7 @@ export default function MenuItemReviewTable({
     } 
 
     return <OurTable
-        data={menuItemReviews}
+        data={ucsbOrganizations}
         columns={columns}
         testid={testIdPrefix}
     />;
