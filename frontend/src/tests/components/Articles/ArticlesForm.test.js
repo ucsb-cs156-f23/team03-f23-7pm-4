@@ -46,10 +46,10 @@ describe("ArticlesForm tests", () => {
             </Router>
         );
         await screen.findByTestId("ArticlesForm-title");
-        const localDateTimeField = screen.getByTestId("ArticlesForm-localDateTime");
+        const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
         const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-        fireEvent.change(localDateTimeField, { target: { value: 'bad-input' } });
+        fireEvent.change(dateAddedField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
     });
 
@@ -69,7 +69,7 @@ describe("ArticlesForm tests", () => {
         expect(screen.getByText(/URL is required./)).toBeInTheDocument();
         expect(screen.getByText(/Email is required./)).toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
-        expect(screen.getByText(/LocalDateTime is required./)).toBeInTheDocument();
+        expect(screen.getByText(/DateAdded is required./)).toBeInTheDocument();
 
     });
 
@@ -89,19 +89,19 @@ describe("ArticlesForm tests", () => {
         const urlField = screen.getByTestId("ArticlesForm-url");
         const explanationField = screen.getByTestId("ArticlesForm-explanation");
         const emailField = screen.getByTestId("ArticlesForm-email");
-        const localDateTimeField = screen.getByTestId("ArticlesForm-localDateTime");
+        const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
         const submitButton = screen.getByTestId("ArticlesForm-submit");
     
         fireEvent.change(titleField, { target: { value: 'fishtitle' } });
         fireEvent.change(urlField, { target: { value: 'fishes.com' } });
         fireEvent.change(explanationField, { target: { value: 'fish stuff' } });
         fireEvent.change(emailField, { target: { value: 'fishes@gmail.com' } });
-        fireEvent.change(localDateTimeField, { target: { value: '2003-01-12T20:20:20' } });
+        fireEvent.change(dateAddedField, { target: { value: '2003-01-12T20:20:20' } });
         fireEvent.click(submitButton);
     
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
     
-        expect(screen.queryByText(/localDateTime must be in ISO format/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/dateAdded must be in ISO format/)).not.toBeInTheDocument();
     });
     
     test("that navigate(-1) is called when Cancel is clicked", async () => {
