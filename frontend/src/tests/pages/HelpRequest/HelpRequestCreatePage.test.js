@@ -7,9 +7,9 @@ import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
-import { HelpRequestForm } from "main/components/HelpRequest/HelpRequestForm";
-import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
+//import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
+//import { HelpRequestForm } from "main/components/HelpRequest/HelpRequestForm";
+//import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
 
 const mockToast = jest.fn();
 jest.mock('react-toastify', () => {
