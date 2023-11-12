@@ -1,3 +1,4 @@
+
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -22,11 +23,14 @@ jest.mock('react-toastify', () => {
     };
 });
 
+
 describe("RecommendationRequestIndexPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
+
     const testId = "RecommendationRequestTable";
+
 
     const setupUserOnly = () => {
         axiosMock.reset();
@@ -34,6 +38,7 @@ describe("RecommendationRequestIndexPage tests", () => {
         axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
         axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
     };
+
 
     const setupAdminUser = () => {
         axiosMock.reset();
@@ -136,6 +141,7 @@ describe("RecommendationRequestIndexPage tests", () => {
         );
 
         // assert
+
         await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
         expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
@@ -152,5 +158,6 @@ describe("RecommendationRequestIndexPage tests", () => {
     });
 
 });
+
 
 
