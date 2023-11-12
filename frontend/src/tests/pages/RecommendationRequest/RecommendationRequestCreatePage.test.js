@@ -73,7 +73,6 @@ describe("RecommendationRequestCreatePage tests", () => {
             </QueryClientProvider>
         );
 
-
         await waitFor(() => {
             expect(screen.getByTestId("RecommendationRequestForm-requesterEmail")).toBeInTheDocument();
         });
