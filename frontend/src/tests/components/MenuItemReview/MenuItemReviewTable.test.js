@@ -21,7 +21,7 @@ describe("MenuItemReviewTable tests", () => {
   const testId = "MenuItemReviewTable";
 
   test("renders empty table correctly", () => {
-    
+
     // arrange
     const currentUser = currentUserFixtures.adminUser;
 
@@ -178,3 +178,4 @@ describe("MenuItemReviewTable tests", () => {
     fireEvent.click(deleteButton);
   });
 });
+
