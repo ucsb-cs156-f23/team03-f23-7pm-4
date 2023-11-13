@@ -21,20 +21,20 @@ Empty.args = {
     ucsbOrganizations: []
 };
 
-export const TwoOrgsOrdinaryUser = Template.bind({});
+export const ThreeOrgsOrdinaryUser = Template.bind({});
 
-TwoOrgsOrdinaryUser.args = {
-    ucsbOrganizations: ucsbOrganizationFixtures.twoOrgs,
+ThreeOrgsOrdinaryUser.args = {
+    ucsbOrganizations: ucsbOrganizationFixtures.threeOrgs,
     currentUser: currentUserFixtures.userOnly,
 };
 
-export const TwoOrgsAdminUser = Template.bind({});
-TwoOrgsAdminUser.args = {
-    ucsbOrganizations: ucsbOrganizationFixtures.twoOrgs,
+export const ThreeOrgsAdminUser = Template.bind({});
+ThreeOrgsAdminUser.args = {
+    ucsbOrganizations: ucsbOrganizationFixtures.threeOrgs,
     currentUser: currentUserFixtures.adminUser,
 }
 
-TwoOrgsAdminUser.parameters = {
+ThreeOrgsAdminUser.parameters = {
     msw: [
         rest.delete('/api/ucsborganizations', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
