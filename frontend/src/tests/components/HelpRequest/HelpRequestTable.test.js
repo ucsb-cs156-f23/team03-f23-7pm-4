@@ -37,6 +37,7 @@ describe("HelpRequestTable tests", () => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
         });
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toBeInTheDocument();
 
         expectedFields.forEach((field) => {
             const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
@@ -45,6 +46,7 @@ describe("HelpRequestTable tests", () => {
 
         expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
         expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toHaveTextContent("true");
 
         const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
         expect(editButton).not.toBeInTheDocument();
@@ -75,6 +77,7 @@ describe("HelpRequestTable tests", () => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
         });
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toBeInTheDocument();
 
         expectedFields.forEach((field) => {
             const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
@@ -83,6 +86,7 @@ describe("HelpRequestTable tests", () => {
 
         expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
         expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toHaveTextContent("true");
 
         const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
         expect(editButton).toBeInTheDocument();
@@ -132,7 +136,7 @@ describe("HelpRequestTable tests", () => {
 
         );
 
-        //await waitFor(() => { expect(screen.getByTestId(`HelpRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+        await waitFor(() => { expect(screen.getByTestId(`HelpRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
          // assert - check that the expected content is rendered
         expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
         expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("cgaucho@ucsb.edu");

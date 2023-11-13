@@ -7,7 +7,7 @@ const helpRequestFixtures = {
         "tableOrBreakoutRoom": "7",
         "requestTime": "2022-04-20T17:35", 
         "explanation": "Need help with Swagger-ui",
-        "solved": false   
+        "solved": true   
     },
 
     threeHelpRequests:
@@ -19,7 +19,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom": "7",
             "requestTime": "2022-04-20T17:35", 
             "explanation": "Need help with Swagger-ui",
-            "solved": false   
+            "solved": true   
         },
 
         {
@@ -29,7 +29,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom": "11",
             "requestTime": "2022-04-20T18:31", 
             "explanation": "Dokku problems",
-            "solved": false   
+            "solved": true   
         },
 
         {
@@ -39,7 +39,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom": "13",
             "requestTime": "2022-04-21T14:15", 
             "explanation": "Merge conflict",
-            "solved": false   
+            "solved": true   
         },
         
     ]
