@@ -5,7 +5,7 @@ const ucsbOrganizationFixtures = {
         "orgTranslationShort": "Skydiving Club",
         "inactive": false
     },
-    twoOrgs: [
+    threeOrgs: [
         {
             "orgCode": "SKY",
             "orgTranslation": "Skydiving Club at UCSB",
@@ -17,6 +17,12 @@ const ucsbOrganizationFixtures = {
             "orgTranslation": "Zeta Phi Rho",
             "orgTranslationShort": "Zeta Phi Rho",
             "inactive": true
+        },
+        {
+            "orgCode": "CODE",
+            "orgTranslation": "Translation",
+            "orgTranslationShort": "Short",
+            "inactive": false
         }
     ]
 }
