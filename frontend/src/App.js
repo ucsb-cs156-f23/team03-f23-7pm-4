@@ -15,6 +15,11 @@ import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
+
+import UCSBOrganizationsIndexPage from "main/pages/UCSBOrganizations/UCSBOrganizationsIndexPage";
+import UCSBOrganizationsCreatePage from "main/pages/UCSBOrganizations/UCSBOrganizationsCreatePage";
+import UCSBOrganizationsEditPage from "main/pages/UCSBOrganizations/UCSBOrganizationsEditPage";
+
 import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
 import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
 import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
@@ -98,18 +103,19 @@ function App() {
         {
          hasRole(currentUser, "ROLE_USER") && (
            <>
-             <Route exact path="/ucsborganizations" element={<PlaceholderIndexPage />} />
+             <Route exact path="/ucsborganizations" element={<UCSBOrganizationsIndexPage />} />
            </>
          )
        }
        {
          hasRole(currentUser, "ROLE_ADMIN") && (
            <>
-             <Route exact path="/ucsborganizations/edit/:id" element={<PlaceholderEditPage />} />
-             <Route exact path="/ucsborganizations/create" element={<PlaceholderCreatePage />} />
+             <Route exact path="/ucsborganizations/edit/:orgCode" element={<UCSBOrganizationsEditPage />} />
+             <Route exact path="/ucsborganizations/create" element={<UCSBOrganizationsCreatePage />} />
            </>
          )
-       }
+       },
+       {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/articles" element={<ArticlesIndexPage />} />
@@ -157,8 +163,22 @@ function App() {
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
-              <Route exact path="/recommendationrequest" element={<RecommendationRequestIndexPage />} />
               <Route exact path="/menuitemreview" element={<MenuItemReviewIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/menuitemreview/edit/:id" element={<MenuItemReviewEditPage />} />
+              <Route exact path="/menuitemreview/create" element={<MenuItemReviewCreatePage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/recommendationrequest" element={<RecommendationRequestIndexPage />} />
             </>
           )
         }
@@ -167,8 +187,6 @@ function App() {
             <>
               <Route exact path="/recommendationrequest/edit/:id" element={<RecommendationRequestEditPage />} />
               <Route exact path="/recommendationrequest/create" element={<RecommendationRequestCreatePage />} />
-              <Route exact path="/menuitemreview/edit/:id" element={<MenuItemReviewEditPage />} />
-              <Route exact path="/menuitemreview/create" element={<MenuItemReviewCreatePage />} />
             </>
           )
         }

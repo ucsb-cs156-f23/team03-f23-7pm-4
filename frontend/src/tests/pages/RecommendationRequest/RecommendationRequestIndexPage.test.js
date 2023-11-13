@@ -152,5 +152,3 @@ describe("RecommendationRequestIndexPage tests", () => {
     });
 
 });
-
-
