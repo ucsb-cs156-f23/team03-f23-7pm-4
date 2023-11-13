@@ -21,7 +21,7 @@ describe("MenuItemReviewTable tests", () => {
   const testId = "MenuItemReviewTable";
 
   test("renders empty table correctly", () => {
-    
+
     // arrange
     const currentUser = currentUserFixtures.adminUser;
 
@@ -29,7 +29,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={[]} currentUser={currentUser} />
+          <MenuItemReviewTable menuitemreview={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -54,7 +54,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
+          <MenuItemReviewTable menuitemreview={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -95,7 +95,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
+          <MenuItemReviewTable menuitemreview={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -131,7 +131,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
+          <MenuItemReviewTable menuitemreview={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -149,7 +149,7 @@ describe("MenuItemReviewTable tests", () => {
     fireEvent.click(editButton);
 
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/menuItemReviews/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/menuitemreview/edit/1'));
 
   });
 
@@ -161,7 +161,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
+          <MenuItemReviewTable menuitemreview={menuItemReviewFixtures.threeMenuItemReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -178,3 +178,4 @@ describe("MenuItemReviewTable tests", () => {
     fireEvent.click(deleteButton);
   });
 });
+
