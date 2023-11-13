@@ -78,6 +78,10 @@ describe("UCSBOrganizationTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslation`)).toHaveTextContent("Zeta Phi Rho");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`)).toHaveTextContent("Zeta Phi Rho");
 
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("CODE");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgTranslation`)).toHaveTextContent("Translation");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgTranslationShort`)).toHaveTextContent("Short");
+
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
     expect(editButton).toHaveClass("btn-primary");
