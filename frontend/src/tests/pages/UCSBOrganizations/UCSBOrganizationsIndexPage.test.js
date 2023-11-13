@@ -71,7 +71,7 @@ describe("UCSBOrganizationsIndexPage tests", () => {
         // arrange
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsborganizations/all").reply(200, ucsbOrganizationFixtures.twoOrgs);
+        axiosMock.onGet("/api/ucsborganizations/all").reply(200, ucsbOrganizationFixtures.threeOrgs);
 
         // act
         render(
@@ -122,7 +122,7 @@ describe("UCSBOrganizationsIndexPage tests", () => {
         // arrange
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsborganizations/all").reply(200, ucsbOrganizationFixtures.twoOrgs);
+        axiosMock.onGet("/api/ucsborganizations/all").reply(200, ucsbOrganizationFixtures.threeOrgs);
         axiosMock.onDelete("/api/ucsborganizations").reply(200, "UCSBOrganization with id SKY was deleted");
 
         // act

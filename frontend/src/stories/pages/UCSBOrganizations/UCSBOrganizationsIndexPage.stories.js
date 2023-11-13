@@ -39,7 +39,7 @@ ThreeItemsOrdinaryUser.parameters = {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
         rest.get('/api/ucsborganizations/all', (_req, res, ctx) => {
-            return res(ctx.json(ucsbOrganizationFixtures.twoOrgs));
+            return res(ctx.json(ucsbOrganizationFixtures.threeOrgs));
         }),
     ],
 }
@@ -55,7 +55,7 @@ ThreeItemsAdminUser.parameters = {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
         rest.get('/api/ucsborganizations/all', (_req, res, ctx) => {
-            return res(ctx.json(ucsbOrganizationFixtures.twoOrgs));
+            return res(ctx.json(ucsbOrganizationFixtures.threeOrgs));
         }),
         rest.delete('/api/ucsborganizations', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));

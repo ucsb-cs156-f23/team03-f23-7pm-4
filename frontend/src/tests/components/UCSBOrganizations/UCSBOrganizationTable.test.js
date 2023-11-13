@@ -54,7 +54,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.twoOrgs} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.threeOrgs} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -78,6 +78,10 @@ describe("UCSBOrganizationTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslation`)).toHaveTextContent("Zeta Phi Rho");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`)).toHaveTextContent("Zeta Phi Rho");
 
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("CODE");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgTranslation`)).toHaveTextContent("Translation");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgTranslationShort`)).toHaveTextContent("Short");
+
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
     expect(editButton).toHaveClass("btn-primary");
@@ -96,7 +100,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.twoOrgs} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.threeOrgs} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -133,7 +137,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.twoOrgs} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.threeOrgs} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -162,7 +166,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.twoOrgs} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsbOrganizations={ucsbOrganizationFixtures.threeOrgs} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
