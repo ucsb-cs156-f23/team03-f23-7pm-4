@@ -1,7 +1,7 @@
 import React from 'react';
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { ucsbOrganizationsFixtures } from "fixtures/ucsbOrganizationsFixtures";
+import { ucsbOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 import { rest } from "msw";
 
 import UCSBOrganizationsIndexPage from "main/pages/UCSBOrganizations/UCSBOrganizationsIndexPage";
@@ -39,7 +39,7 @@ ThreeItemsOrdinaryUser.parameters = {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
         rest.get('/api/ucsborganizations/all', (_req, res, ctx) => {
-            return res(ctx.json(ucsbOrganizationsFixtures.twoOrgs));
+            return res(ctx.json(ucsbOrganizationFixtures.twoOrgs));
         }),
     ],
 }
@@ -55,7 +55,7 @@ ThreeItemsAdminUser.parameters = {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
         rest.get('/api/ucsborganizations/all', (_req, res, ctx) => {
-            return res(ctx.json(ucsbOrganizationsFixtures.twoOrgs));
+            return res(ctx.json(ucsbOrganizationFixtures.twoOrgs));
         }),
         rest.delete('/api/ucsborganizations', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
