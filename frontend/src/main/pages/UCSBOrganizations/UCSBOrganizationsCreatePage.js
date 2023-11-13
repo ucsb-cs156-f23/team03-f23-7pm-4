@@ -1,8 +1,8 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 
-export default function PlaceholderCreatePage() {
+export default function UCSBOrganizationsCreatePage() {
 
-  // Stryker disable all : UCSBOrganizations for future implementation
+  // Stryker disable all : placeholder for future implementation
   return (
     <BasicLayout>
       <div className="pt-2">
