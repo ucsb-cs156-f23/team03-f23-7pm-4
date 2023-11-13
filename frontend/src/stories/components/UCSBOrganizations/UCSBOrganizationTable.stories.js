@@ -28,13 +28,13 @@ ThreeOrgsOrdinaryUser.args = {
     currentUser: currentUserFixtures.userOnly,
 };
 
-export const ThreeOrgsOrdinaryUser = Template.bind({});
-ThreeOrgsOrdinaryUser.args = {
+export const ThreeOrgsAdminUser = Template.bind({});
+ThreeOrgsAdminUser.args = {
     ucsbOrganizations: ucsbOrganizationFixtures.threeOrgs,
     currentUser: currentUserFixtures.adminUser,
 }
 
-ThreeOrgsOrdinaryUser.parameters = {
+ThreeOrgsAdminUser.parameters = {
     msw: [
         rest.delete('/api/ucsborganizations', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
