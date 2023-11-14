@@ -11,7 +11,7 @@ export default function UCSBOrganizationsEditPage({storybook=false}) {
   const { data: ucsbOrg, _error, _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
-      [`/api/ucsborganizations?code=${orgCode}`],
+      [`/api/ucsborganizations?orgCode=${orgCode}`],
       {  // Stryker disable next-line all : GET is the default, so changing this to "" doesn't introduce a bug
         method: "GET",
         url: `/api/ucsborganizations`,
